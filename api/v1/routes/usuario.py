@@ -145,7 +145,7 @@ async def put_usuario(
 @router.delete(
     "/{usuario_id}",
     summary="Deleta Usuário",
-    status_code=status.HTTP_200_OK,
+    status_code=status.HTTP_204_NO_CONTENT,
     response_description="OK",
 )
 async def delete_usuario(
@@ -167,4 +167,3 @@ async def delete_usuario(
 
         await session.delete(usuario_delete)
         await session.commit()
-    return Response(status_code=status.HTTP_200_OK)
