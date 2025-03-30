@@ -1,8 +1,6 @@
 import os
 from pathlib import Path
-from typing import ClassVar
-from pydantic_settings import BaseSettings, SettingsConfigDict
-from sqlalchemy.ext.declarative import declarative_base
+from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
@@ -17,8 +15,6 @@ class Settings(BaseSettings):
     BASE_DIR: Path = os.path.dirname(os.path.abspath(__name__))
     UPLOAD_DIR: Path = os.path.join(BASE_DIR, "uploads")
     TEMPLATE_DIR: Path = os.path.join(BASE_DIR, "templates")
-
-    DBaseModel: ClassVar = declarative_base()
 
     class Config:
         case_sensitive = True
