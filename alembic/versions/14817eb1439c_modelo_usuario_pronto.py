@@ -1,8 +1,8 @@
 """modelo usuario pronto
 
-Revision ID: 88b0028d2f7c
+Revision ID: 14817eb1439c
 Revises: 
-Create Date: 2025-03-30 13:26:18.591270
+Create Date: 2025-03-30 16:07:10.779510
 
 """
 from typing import Sequence, Union
@@ -13,7 +13,7 @@ import sqlmodel
 
 
 # revision identifiers, used by Alembic.
-revision: str = '88b0028d2f7c'
+revision: str = '14817eb1439c'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -26,14 +26,12 @@ def upgrade() -> None:
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('nome', sqlmodel.sql.sqltypes.AutoString(), nullable=False),
     sa.Column('cpf', sqlmodel.sql.sqltypes.AutoString(), nullable=False),
-    sa.Column('cnpj', sqlmodel.sql.sqltypes.AutoString(), nullable=False),
     sa.Column('email', sqlmodel.sql.sqltypes.AutoString(), nullable=False),
     sa.Column('senha', sqlmodel.sql.sqltypes.AutoString(), nullable=False),
     sa.Column('foto_perfil', sqlmodel.sql.sqltypes.AutoString(), nullable=True),
     sa.Column('data_criacao', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
     sa.Column('data_alteracao', sa.DateTime(timezone=True), nullable=True),
     sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('cnpj'),
     sa.UniqueConstraint('cpf'),
     sa.UniqueConstraint('email'),
     schema='fornexpress'

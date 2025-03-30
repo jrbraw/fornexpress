@@ -16,7 +16,6 @@ class UsuarioModel(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     nome: str
     cpf: str = Field(unique=True)
-    cnpj: str = Field(unique=True)
     email: str = Field(unique=True)
     senha: str
     foto_perfil: Optional[str] = Field(default="default.png")
